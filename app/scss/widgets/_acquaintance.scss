@@ -1,0 +1,320 @@
+.acquaintance {
+    position: relative;
+    height: 100vh;
+
+
+    .background {
+        position: absolute;
+        z-index: -1;
+        height: 100vh;
+        width: 100%;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/full-screen.jpg");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: cover;
+    }
+
+    .menu_button {
+        position: fixed;
+        z-index: 2;
+        margin-left: 6%;
+        margin-top: 6%;
+        padding-top: 6px;
+        width: 41px;
+        height: 41px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: left 0.5s ease-in-out;
+        span {
+            display: block;
+            height: 3px;
+            margin: 5px;
+            background-color: #ffffff;
+            transition: transform 1s 0.5s, opacity 0.4s 0.5s;
+        }
+        &.open {
+            transform: rotate(0deg);
+            transition: transform 1s;
+            /*&:hover {
+                transform: rotate(90deg);
+            }*/
+
+            span {
+                &:first-child {
+                    transform: rotate(135deg) translateY(-6px) translateX(5px);
+                }
+                &:nth-child(2) {
+                    transform: rotate(45deg);
+                }
+                &:last-child {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .acquaintance-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+        text-align: center;
+
+        h1 {
+            font-size: 62px;
+            font-weight: 900;
+            color: #ffffff;
+            span {
+                font-weight: 300;
+            }
+        }
+
+        h2 {
+            margin-top: 5px;
+            font-size: 112px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        h3 {
+            font-size: 34px;
+            font-weight: 400;
+            margin-top: 89px;
+            color: #ffffff;
+        }
+
+        .form-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 370px;
+            margin-top: 108px;
+            padding: 30px;
+            border-radius: 3px;
+            background-color: #e2dfde;
+            text-align: center;
+            box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.3);
+
+            .msg {
+                position: absolute;
+                top: -35px;
+                bottom: 0;
+                right: 0;
+                display: none;
+                width: 370px;
+                height: 30px;
+                padding: 5px;
+                font-size: 16px;
+                cursor: default;
+
+                span {
+                    background-color: inherit;
+                    &:after {
+                        content: 'x';
+                        position: absolute;
+                        right: -9px;
+                        top: -10px;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        background-color: inherit;
+                        line-height: 15px;
+                        cursor: pointer;
+                    }
+                }
+
+                &.success {
+                    display: block;
+                    background-color: limegreen;
+                }
+
+                &.fail {
+                    display: block;
+                    background-color: red;
+                }
+            }
+
+            .inputGrp {
+                position: relative;
+                margin-bottom: 20px;
+
+                .full {
+                    z-index: 1;
+                }
+
+                .error-msg {
+                    position: absolute;
+                    top: -15px;
+                    bottom: 0;
+                    right: 10px;
+                    font-size: 10px;
+                    color: red;
+                }
+
+                input {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+
+                    &:focus {
+                        border-color: #696969;
+                    }
+                    &:focus + label {
+                        top: -70%;
+                        font-size: 70%;
+                        color: #000000;
+                    }
+                }
+
+                label {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    padding-left: 10px;
+                    font-size: 20px;
+                    line-height: 51px;
+                    text-align: left;
+                    color: #B2B2B2;
+                    transition-property: all;
+                    transition-duration: 0.2s;
+                    transition-timing-function: linear;
+                }
+            }
+
+            .button {
+                    width: 100%;
+                    margin-top: 10px;
+            }
+        }
+    }
+
+    @include breakpoint(leptop) {
+        .acquaintance-inner {
+            h3 {
+                margin-top: 70px;
+            }
+            .form-wrapper {
+                margin-top: 60px;
+            }
+        }
+    }
+
+    @include breakpoint(small) {
+        .acquaintance-inner {
+            h1 {
+                font-size: 41px;
+            }
+            h2 {
+                font-size: 75px;
+            }
+            h3 {
+                font-size: 23px;
+            }
+        }
+    }
+
+
+    @include breakpoint(mobile) {
+        .menu_button {
+            height: 31px;
+            .material-icons {
+                font-size: 32px;
+            }
+        }
+
+        .acquaintance-inner {
+            h1 {
+                font-size: 25px;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            h3 {
+                margin-top: 30px;
+                font-size: 18px;
+            }
+            .form-wrapper {
+                width: 300px;
+                padding: 20px;
+
+                .inputGrp {
+
+                    input, label {
+                        font-size: 15px;
+                        line-height: 35px;
+                    }
+                }
+
+                .button {
+                    padding: 12px 0px;
+                    font-size: 16px;
+                }
+
+                .msg {
+                    width: 300px;
+                    font-size: 14px;
+                }
+
+            }
+        }
+    }
+
+
+    @include breakpoint(mobile-landscape) {
+        .acquaintance-inner {
+            h1 {
+                font-size: 25px;
+            }
+            h2 {
+                margin-top: 0px;
+                font-size: 36px;
+            }
+            h3 {
+                margin-top: 0px;
+                font-size: 18px;
+            }
+            .form-wrapper {
+                margin-top: 40px;
+                padding: 15px;
+
+                .inputGrp {
+                    input,label {
+                        font-size: 12px;
+                        line-height: 30px;
+                    }
+                }
+
+                .button {
+                    margin-top: 0;
+                    padding: 10px 0px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    @media (max-height: 350px) {
+        .acquaintance-inner {
+            .form-wrapper {
+                margin-top: 20px;
+
+                .inputGrp {
+                    input,label {
+                        font-size: 10px;
+                        line-height: 22px;
+                    }
+                }
+
+                .button {
+                    margin-top: 0;
+                    padding: 10px 0px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+}

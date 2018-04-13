@@ -1,0 +1,79 @@
+.faq {
+    min-height: 612px;
+    padding-top: 100px;
+    padding-bottom: 114px;
+    background-image: url('/img/background-faq.jpg');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    background-attachment: fixed;
+
+    .col-faq {
+        margin-top: 56px;
+
+        .panel-group .panel+.panel {
+            margin-top: 22px;
+        }
+
+        .panel {
+            border: none;
+            border-radius: 3px;
+            background-color: #ff4538;
+            box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.1);
+            transition-property: background-color;
+            transition-duration: 350ms;
+
+            .panel-heading {
+                padding: 9px 20px;
+                border: none;
+                background: none;
+
+                .panel-title {
+                    font-size: 24px;
+                    line-height: 42px;
+
+                    a {
+                        position: relative;
+                        display: block;
+                        color: #ffffff;
+
+                        &:hover {
+                            color: #ffffff;
+                        }
+
+                        &:focus {
+                            color: #ffffff;
+                        }
+
+                        .material-icons {
+                            position: absolute;
+                            top: 8px;
+                            right: 0;
+                            width: 30px;
+                            height: 30px;
+                            padding-top: 3px;
+                            padding-left: 3px;
+                            border-radius: 50%;
+                            background-color: #ffffff;
+                            color: #dd3c30;
+                        }
+
+                    }
+
+                    .collapsed i:last-child {
+                        display: none;
+                    };
+                }
+            }
+            .panel-collapse {
+                .panel-body {
+                    padding: 5px 20px;
+                    border: none;
+                    p {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}
